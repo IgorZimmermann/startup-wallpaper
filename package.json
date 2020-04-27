@@ -14,6 +14,6 @@
   "author": "paperking01",
   "license": "MIT",
   "dependencies": {
-    "reddit": "^1.0.3"
+    "puppeteer": "^3.0.1"
   }
 }
