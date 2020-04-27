@@ -4,9 +4,17 @@
 
 ## Installation & Setup
 
-Install `startup-wallpaper` from npm
+Install `startup-wallpaper` from Github
 ```cmd
-npm install startup-wallpaper
+git clone https://github.com/IgorZimmermann/startup-wallpaper
+```
+
+```cmd
+cd startup-wallpaper-master
+```
+
+```cmd
+npm install
 ```
 
 Install `pm2` from npm

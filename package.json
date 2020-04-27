@@ -1,7 +1,7 @@
 {
   "name": "startup-wallpaper",
-  "version": "0.0.1",
-  "description": "Sets your wallpaper to a random image from r/MinimalWallpaper",
+  "version": "1.0.0",
+  "description": "Sets your wallpaper to a random image from r/wallpaper",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,12 @@
     "reddit",
     "startup"
   ],
-  "author": "paperking01",
+  "author": "Igor Zimmermann <igorzimmermann01@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IgorZimmermann/startup-wallpaper.git"
+  },
+  "homepage": "https://github.com/IgorZimmermann/startup-wallpaper#readme",
   "license": "MIT",
   "dependencies": {
     "puppeteer": "^3.0.1",
