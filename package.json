@@ -1,0 +1,19 @@
+{
+  "name": "startup-wallpaper",
+  "version": "0.0.1",
+  "description": "Sets your wallpaper to a random image from r/MinimalWallpaper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wallpaper",
+    "reddit",
+    "startup"
+  ],
+  "author": "paperking01",
+  "license": "MIT",
+  "dependencies": {
+    "reddit": "^1.0.3"
+  }
+}
