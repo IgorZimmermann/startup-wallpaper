@@ -5,7 +5,7 @@ const wallpaper = require('wallpaper')
 async function getImage() {
   const browser = await puppeteer.launch({executablePath: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'})
   const page = await browser.newPage()
-  await page.goto('https://www.reddit.com/r/wallpaper/search?q=1920x1080&restrict_sr=1&sort=top')
+  await page.goto('https://www.reddit.com/r/wallpaper/search?q=1920x1080&restrict_sr=1&sort=top&t=week')
   await page.waitFor(1000)
   let href = await page.evaluate(() => document.querySelector('.Post:nth-child(1) .styled-outbound-link').getAttribute('href'))
   browser.close()
