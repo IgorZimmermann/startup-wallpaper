@@ -1,25 +1,23 @@
-const puppeteer = require('puppeteer')
 const { writeFileSync } = require('fs')
 const wallpaper = require('wallpaper')
+const axios = require('axios').default
+const cheerio = require('cheerio')
+
+const uri = 'https://www.reddit.com/r/wallpaper/search?q=1920x1080&restrict_sr=1&sort=top&t=day'
 
 async function getImage() {
-  const browser = await puppeteer.launch({executablePath: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'})
-  const page = await browser.newPage()
-  await page.goto('https://www.reddit.com/r/wallpaper/search?q=1920x1080&restrict_sr=1&sort=top&t=day')
-  await page.waitFor(1000)
-  let href = await page.evaluate(() => document.querySelector('.Post:nth-child(1) .styled-outbound-link').getAttribute('href'))
-  browser.close()
-  return href
+  let res = await axios.get(uri)
+  let $ = cheerio.load(res.data)
+  return $('.styled-outbound-link').eq(1).attr('href')
 }
 
 async function setBackground() {
   let imgHREF = await getImage()
-  const browser = await puppeteer.launch({executablePath: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'})
-  const page = await browser.newPage()
-  const viewSource = await page.goto(imgHREF)
-  writeFileSync(__dirname + "/.cachewallpaper.png", await viewSource.buffer())
-
-  await wallpaper.set(__dirname + "/.cachewallpaper.png")
-  browser.close()
+  axios.get(imgHREF, {
+    responseType: 'arraybuffer'
+  }).then(buffer => {
+    writeFileSync(__dirname + "/.cachewallpaper.png", buffer.data)
+    wallpaper.set(__dirname + "/.cachewallpaper.png")
+  })
 }
 setBackground()
