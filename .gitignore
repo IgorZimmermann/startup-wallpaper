@@ -3,7 +3,7 @@ node_modules/
 package-lock.json
 
 # Config
-# config.json
+config.json
 
 # Cache IMG
 .cachewallpaper.png
