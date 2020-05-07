@@ -42,3 +42,14 @@ pm2 start index.js --name startupWallpaper
 ```cmd
 pm2 save
 ```
+
+## Configuration
+
+```js
+// config.json
+{
+  "resolution": // 1920x1080 or 2560x1600 or 3840x2160,
+  "sort": // top or relevance,
+  "time": // all or month or week or day
+}
+```
