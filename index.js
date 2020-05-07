@@ -3,7 +3,9 @@ const wallpaper = require('wallpaper')
 const axios = require('axios').default
 const cheerio = require('cheerio')
 
-const uri = 'https://www.reddit.com/r/wallpaper/search?q=1920x1080&restrict_sr=1&sort=top&t=day'
+const config = require('./config.json')
+
+const uri = `https://www.reddit.com/r/wallpaper/search?q=${config.resolution}&restrict_sr=1&sort=${config.sort}&t=${config.time}`
 
 async function getImage() {
   let res = await axios.get(uri)
